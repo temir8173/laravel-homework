@@ -1,6 +1,9 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SiteController::class, 'index']);
+Route::get('/profile/{id}', [ProfileController::class, 'index']);
+Route::get('image-upload', [ImageUploadController::class, 'imageUpload'])->name('image.upload');
+Route::post('image-upload', [ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
+
+//Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
+//Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
