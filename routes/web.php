@@ -18,8 +18,8 @@ use App\Http\Controllers\ImageUploadController;
 
 Route::get('/', [SiteController::class, 'index']);
 Route::get('/profile/{id}', [ProfileController::class, 'index']);
-Route::get('image-upload', [ImageUploadController::class, 'imageUpload'])->name('image.upload');
-Route::post('image-upload', [ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
+Route::post('/profile/update-image', [profileController::class, 'UpdateImage'])->name('image.upload.post');
+Route::post('/profile/update-info', [profileController::class, 'UpdateInfo'])->name('info.update');
 
 //Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
 //Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');

@@ -7,7 +7,7 @@
 			<?php foreach ($companies as $company) : ?>
 
 				<div class="company-box">
-			    	<span>Компания: </span><h5><?= $company->name ?></h5>
+			    	<span>Компания: </span><h5><a href="<?= url("/profile/{$company->id}"); ?>"><?= $company->name ?></a></h5>
 
 
 			    	<span>Сотрудники: </span>

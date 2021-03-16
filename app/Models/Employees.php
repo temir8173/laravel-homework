@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employees extends Model
 {
+	public $timestamps = false;
+	
 	public function company()
 	{
 	    return $this->belongsTo(Companies::class, 'company_id');
