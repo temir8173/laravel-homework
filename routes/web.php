@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +20,9 @@ use App\Http\Controllers\ImageUploadController;
 
 Route::get('/', [SiteController::class, 'index']);
 Route::get('/profile/{id}', [ProfileController::class, 'index']);
-Route::post('/profile/update-image', [profileController::class, 'UpdateImage'])->name('image.upload.post');
-Route::post('/profile/update-info', [profileController::class, 'UpdateInfo'])->name('info.update');
+Route::post('/profile/update-image', [ProfileController::class, 'UpdateImage'])->name('image.upload.post');
+Route::post('/profile/update-info', [ProfileController::class, 'UpdateInfo'])->name('info.update');
 
-//Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
-//Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
